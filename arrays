@@ -128,5 +128,16 @@ def findMinDiff(arr, n, m):
         min_d=min(min_d,arr[i+m-1]-arr[i])
     return min_d
     
-    
-    
+  2 sum 
+  https://leetcode.com/problems/two-sum/description/
+  
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dictn={}
+        for i,n in enumerate(nums):
+            dictn[n]=i
+        
+        for ind,n in enumerate(nums):
+            if target-n in dictn and ind!=dictn[target-n]:
+                return ind, dictn[target-n]
+                
