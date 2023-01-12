@@ -141,3 +141,23 @@ class Solution:
             if target-n in dictn and ind!=dictn[target-n]:
                 return ind, dictn[target-n]
                 
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+stocks 2
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        i=0
+        j=1
+        mp=0
+        min=prices[0]
+        while j<len(prices):
+
+            if prices[i]<prices[j]:
+                profit=prices[j]-prices[i]
+
+                mp=mp+profit
+            
+            j+=1
+            i+=1
+        return mp
+
