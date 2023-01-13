@@ -21,18 +21,15 @@ find all duplicates in array
 https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/877262857/
 
 class Solution:
-    def subarraysDivByK(self, nums: List[int], k: int) -> int:
-        running=count=0
-        remainder=collections.defaultdict(int)
-        
-        remainder[0]=1
-        for num in nums:
-            running+=num
-            if running%k in remainder:
-                count+=remainder[running%k]
-            remainder[running%k]+=1
-        return count
-
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        output=[]
+        for n in nums:
+            m=abs(n)
+            if nums[m-1]<0:
+                output.append(m)
+            else:
+                nums[m-1]*=-1
+        return output
 
 container with most water
 https://leetcode.com/problems/container-with-most-water/
