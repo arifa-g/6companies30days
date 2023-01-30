@@ -99,4 +99,17 @@ class Solution:
                         l+=1
         ksum(4,0,target)
         return res
+#subarray sum equals to k
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
 
+        
+        res=0
+        curr=0
+        prefixsums={0:1}
+        for n in nums:
+            curr+=n
+            diff=curr-k
+            res+=prefixsums.get(diff,0)
+            prefixsums[curr]=1+prefixsums.get(curr,0)
+        return res
