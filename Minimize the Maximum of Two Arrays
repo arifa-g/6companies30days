@@ -8,7 +8,7 @@ arr1 = [1] and arr2 = [2,3,4].
 We can see that both arrays satisfy all the conditions.
 Since the maximum value is 4, we return it.
 
-Note: binary search used
+Note: binary search log(2_10 10)
 Medium level
 
 class Solution:
