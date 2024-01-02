@@ -1,0 +1,23 @@
+
+Input: access_times = [["a","0549"],["b","0457"],["a","0532"],["a","0621"],["b","0540"]]
+Output: ["a"]
+Explanation: "a" has three access times in the one-hour period of [05:32, 06:31] which are 05:32, 05:49, and 06:21.
+But "b" does not have more than two access times at all.
+So the answer is ["a"].
+
+time complexity: nlogn medium
+hash table implemented
+
+from typing import List
+from collections import defaultdict
+class Solution:
+    def findHighAccessEmployees(self, access_times: List[List[str]]) -> List[str]:
+        d=defaultdict(list)
+        for name, t in access_times:
+            d[name].append(int(t[:2])*60+int(t[2:]))
+        ans=[]
+        for name, t in d.items():
+            t.sort()
+            if any(t[i]-t[i-2]<60 for i in range(2,len(t))):
+                ans.append(name)
+        return ans
